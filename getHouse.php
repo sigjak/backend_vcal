@@ -5,11 +5,7 @@ $tablename = $_GET['name'];
 require_once "dbase_connection.php";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
-// test for connection
-/*if (mysqli_connect_errno()) {
-	die("Database connection failed: " . mysqli_connect_error() .
-		" ( " . mysqli_connect_errno() . ")");
-}*/
+
 if(!$connection){
 	echo ('ConnectionError');
 	exit();
