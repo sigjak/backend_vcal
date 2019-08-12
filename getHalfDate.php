@@ -6,7 +6,7 @@ function yearsort($dateIn){
       $j=0;
       for($i=0;$i<$size;$i++){
         if($thisYear <= substr($dateIn[$i], -4)){
-          $dateOut[$j]= $dateIn[$i];
+          $dateOut[$j]= strtotime($dateIn[$i])*1000;
           $j++;
         }
       }
