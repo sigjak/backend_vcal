@@ -1,18 +1,4 @@
 <?php
-function yearsort($dateIn){
-      $dateOut=[];
-      $size = count($dateIn);
-      $thisYear = date('Y');
-      $j=0;
-      for($i=0;$i<$size;$i++){
-        if($thisYear <= substr($dateIn[$i], -4)){
-          $dateOut[$j]= $dateIn[$i];
-          $j++;
-        }
-      }
-      return $dateOut;
-}
-
 error_reporting(0);
  $tablename = $_GET['name'];
 
@@ -40,25 +26,16 @@ if (!$result) {
 $dates_zero = [];
 $dates_one = [];
 $dates_two = [];
-
-$dates_00 = [];
-$dates_11 = [];
-$dates_22 = [];
 while ($row = mysqli_fetch_assoc($result)) {
 	if($row['status'] == 0){
-  $dates_00[] = ($row['date']);
+  $dates_zero[] = strtotime($row['date'])*1000;
         
 }elseif($row['status'] == 2){
-  $dates_22[]=($row['date']);
+  $dates_two[]=strtotime($row['date'])*1000;
 }else{
-  $dates_11[]=($row['date']);	
+  $dates_one[]=strtotime($row['date'])*1000;	
 	}
 }
-
-$dates_zero = yearsort($dates_00);
-$dates_one = yearsort($dates_11);
-$dates_two = yearsort($dates_22);
-
 // compare arrays zero and two if in both arrays remove from both
 // and add to onr array
 
