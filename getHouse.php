@@ -87,7 +87,7 @@ for ($i = 0; $i < $uniqueLength; $i++) {
 
 //change all $timestamp and newdates from here to $timestamps
 for ($i = 0; $i < $uniqueLength; $i++) {
-	if ($available[$i] == 0) {
+	if ($available[$i] <= 0) {
 	    array_push($disabled,$timestamp[$i]);
 		unset($timestamp[$i]);
 		//unset($newstatus[$i]);
